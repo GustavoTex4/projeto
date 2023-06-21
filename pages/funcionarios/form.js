@@ -26,6 +26,13 @@ const form = () => {
 
     setValue(name, mask(value, mascara))
   }
+  function handletelefone(event) {
+    const name = event.target.name
+    const value = event.target.value
+    const mascara = ['(99) 9999-9999','(99) 99999-9999']
+
+    setValue(name, mask(value, mascara))
+  }
   return (
     <>
       <Pagina titulo='Funcionário'>
@@ -42,7 +49,7 @@ const form = () => {
             <Form.Label>Telefone:</Form.Label>
             <Form.Control isInvalid={errors.nome} mask="(99) 9999-9999"
               {...register('telefone', funcionarioValidator.telefone)} type="text"
-              onChange={handleChange} />
+              onChange={handletelefone} />
             {
               errors.telefone &&
               <small>{errors.telefone.message}</small>

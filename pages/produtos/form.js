@@ -8,6 +8,7 @@ import { AiFillSave } from 'react-icons/ai'
 import { ImExit } from 'react-icons/im'
 import produtoValidator from '@/validators/produtoValidator'
 import { mask } from 'remask'
+import CurrencyInput from 'react-currency-masked-input'
 
 const form = () => {
   const { push } = useRouter()
@@ -37,11 +38,9 @@ const form = () => {
               <small>{errors.produto.message}</small>
             }
           </Form.Group>
-          <Form.Group className="mb-3" controlId="preco">
-            <Form.Label>Preço:</Form.Label>
-            <Form.Control isInvalid={errors.preco} mask="R$ 99,99" 
-            {...register('preco', produtoValidator.preco)} type="text"
-            onChange={handleChange}/>
+          <Form.Group className="mb-3">
+            <Form.Label>Preço</Form.Label>
+            < CurrencyInput name='myInput' {...register('preco', produtoValidator.preco)} id="preco" />
             {
               errors.preco &&
               <small>{errors.preco.message}</small>

@@ -10,6 +10,8 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { mask } from 'remask'
 import { ImExit } from 'react-icons/im'
+import CurrencyInput from 'react-currency-masked-input'
+
 
 
 const form = () => {
@@ -27,21 +29,19 @@ const form = () => {
     return JSON.parse(window.localStorage.getItem('produtos')) || []
   }
 
-
   function salvar(dados) {
     const carrinhos = JSON.parse(window.localStorage.getItem('carrinhos')) || []
     carrinhos.push(dados)
     window.localStorage.setItem('carrinhos', JSON.stringify(carrinhos))
     push('/carrinhos')
   }
-  function handleChange(event) {
+  function handlepreco(event) {
     const name = event.target.name
     const value = event.target.value
-    const mascara = event.target.getAttribute('mask')
+    const mascara = ['R$9,999','R$99,999','R$999,999','R$9999,999','R$99999,999','R$999999,999','R$9999999,99']
 
     setValue(name, mask(value, mascara))
   }
-
   return (
     <>
       <Pagina titulo='Carrinho'><AiOutlineShoppingCart className='me-1' />
@@ -76,9 +76,7 @@ const form = () => {
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Preço</Form.Label>
-            <Form.Control isInvalid={true} mask="R$ 99,99"
-              {...register('preco', carrinhoValidator.preco)} id="preco"
-              onChange={handleChange} />
+            < CurrencyInput name='myInput' {...register('preco', carrinhoValidator.preco)} id="preco" />
             {
               errors.preco &&
               <small>{errors.preco.message}</small>

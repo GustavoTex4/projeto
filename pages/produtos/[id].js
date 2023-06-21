@@ -33,10 +33,11 @@ const editar = () => {
     window.localStorage.setItem('produtos', JSON.stringify(produtos))
     push('/produtos')
   }
-  function handleChange(event) {
+  
+  function handlepreco(event) {
     const name = event.target.name
     const value = event.target.value
-    const mascara = event.target.getAttribute('mask')
+    const mascara = ['R$9,999','R$99,999','R$999,999','R$9999,999','R$99999,999','R$999999,999','R$9999999,99']
 
     setValue(name, mask(value, mascara))
   }
@@ -54,9 +55,9 @@ const editar = () => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="preco">
             <Form.Label>Preço:</Form.Label>
-            <Form.Control isInvalid={errors.preco} mask="R$ 99,99" 
+            <Form.Control isInvalid={errors.preco} 
             {...register('preco', produtoValidator.preco)} type="text"
-            onChange={handleChange}/>
+            onChange={handlepreco}/>
             {
               errors.preco &&
               <small>{errors.preco.message}</small>

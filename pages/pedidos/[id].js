@@ -43,14 +43,14 @@ const editar = () => {
     window.localStorage.setItem('pedidos', JSON.stringify(pedidos))
     push('/pedidos')
   }
-  function handleChange(event) {
+  
+  function handlepreco(event) {
     const name = event.target.name
     const value = event.target.value
-    const mascara = event.target.getAttribute('mask')
+    const mascara = ['R$9,999','R$99,999','R$999,999','R$9999,999','R$99999,999','R$999999,999','R$9999999,99']
 
     setValue(name, mask(value, mascara))
   }
-
   return (
     <>
       <Pagina titulo='Pedidos'>
@@ -77,9 +77,9 @@ const editar = () => {
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Valor:</Form.Label>
-              <Form.Control isInvalid={true} mask="R$ 99,99"
+              <Form.Control isInvalid={true} 
                 {...register('valor', pedidoValidator.valor)} id="valor"
-                onChange={handleChange} />
+                onChange={handlepreco} />
               {
                 errors.valor &&
                 <small>{errors.valor.message}</small>

@@ -10,7 +10,7 @@ import pedidoValidator from '@/validators/pedidoValidator'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { mask } from 'remask'
-
+import CurrencyInput from 'react-currency-masked-input'
 
 const form = () => {
   const [produtos, setProdutos] = useState([])
@@ -66,9 +66,7 @@ const form = () => {
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Valor:</Form.Label>
-            <Form.Control isInvalid={true} mask="R$ 99,99"
-              {...register('valor', pedidoValidator.valor)} id="valor"
-              onChange={handleChange} />
+            < CurrencyInput name='myInput' {...register('valor', pedidoValidator.valor)} id="valor" />
             {
               errors.valor &&
               <small>{errors.valor.message}</small>
