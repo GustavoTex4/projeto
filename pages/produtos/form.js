@@ -40,7 +40,7 @@ const form = () => {
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Preço</Form.Label>
-            < CurrencyInput name='myInput' {...register('preco', produtoValidator.preco)} id="preco" />
+            < CurrencyInput name='myInput' isInvalid={errors.preco} {...register('preco', produtoValidator.preco)} id="preco" />
             {
               errors.preco &&
               <small>{errors.preco.message}</small>

@@ -66,7 +66,7 @@ const form = () => {
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Valor:</Form.Label>
-            < CurrencyInput name='myInput' {...register('valor', pedidoValidator.valor)} id="valor" />
+            < CurrencyInput name='myInput' isInvalid={errors.valor} {...register('valor', pedidoValidator.valor)} id="valor" />
             {
               errors.valor &&
               <small>{errors.valor.message}</small>
