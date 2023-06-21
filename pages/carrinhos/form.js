@@ -8,7 +8,6 @@ import { AiFillSave, AiOutlineShoppingCart } from 'react-icons/ai'
 import carrinhoValidator from '@/validators/carrinhoValidator'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { mask } from 'remask'
 import { ImExit } from 'react-icons/im'
 import CurrencyInput from 'react-currency-masked-input'
 
@@ -35,13 +34,7 @@ const form = () => {
     window.localStorage.setItem('carrinhos', JSON.stringify(carrinhos))
     push('/carrinhos')
   }
-  function handlepreco(event) {
-    const name = event.target.name
-    const value = event.target.value
-    const mascara = ['R$9,999','R$99,999','R$999,999','R$9999,999','R$99999,999','R$999999,999','R$9999999,99']
-
-    setValue(name, mask(value, mascara))
-  }
+  
   return (
     <>
       <Pagina titulo='Carrinho'><AiOutlineShoppingCart className='me-1' />
@@ -76,7 +69,7 @@ const form = () => {
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Preço</Form.Label>
-            < CurrencyInput name='myInput' {...register('preco', carrinhoValidator.preco)} id="preco" />
+            < CurrencyInput name='myInput' isInvalid={errors.preco} {...register('preco', carrinhoValidator.preco)} id="preco" />
             {
               errors.preco &&
               <small>{errors.preco.message}</small>
