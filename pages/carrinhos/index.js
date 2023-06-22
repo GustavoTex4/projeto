@@ -33,7 +33,6 @@ const index = () => {
           <thead>
             <tr>
               <th>#</th>
-              <th>Sessão</th>
               <th>Produto</th>
               <th>Quantidade</th>
               <td>Preço</td>
@@ -48,12 +47,9 @@ const index = () => {
 
                   <FiDelete onClick={() => excluir(i)} />
                 </td>
-                <td>{item.sessao}</td>
                 <td>{item.produto}</td>
                 <td>{item.quantidade}</td>
                 <td>{item.preco}</td>
-
-
               </tr>
             ))}
 

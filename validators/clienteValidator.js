@@ -15,6 +15,7 @@ const clienteValidator = {
       value: 4,
       message: ' O mínimo é 4 caracteres'
     },
+  
   },
   rua: {
     required: 'O campo é obrigatório',

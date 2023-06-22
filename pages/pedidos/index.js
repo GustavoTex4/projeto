@@ -35,7 +35,7 @@ const index = () => {
               <th>#</th>
               <th>Produto</th>
               <th>Quantidade</th>
-              <th>Valor</th>
+              <th>preco</th>
             </tr>
           </thead>
           <tbody>
@@ -48,7 +48,7 @@ const index = () => {
                 </td>
                 <td>{item.produto}</td>
                 <td>{item.quantidade}</td>
-                <td>{item.valor}</td>
+                <td>{item.preco}</td>
               </tr>
             ))}
 

@@ -13,7 +13,7 @@ const pedidoValidator = {
       message: 'O mínimo é 1 '
     },
   },
-  valor: {
+  preco: {
     required: 'O campo é obrigatório',
     min: {
       value: 1,

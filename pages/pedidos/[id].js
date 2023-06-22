@@ -76,13 +76,13 @@ const editar = () => {
               }
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Valor:</Form.Label>
+              <Form.Label>Preço:</Form.Label>
               <Form.Control isInvalid={true} 
-                {...register('valor', pedidoValidator.valor)} id="valor"
+                {...register('preco', pedidoValidator.valor)} id="preco"
                 onChange={handlepreco} />
               {
-                errors.valor &&
-                <small>{errors.valor.message}</small>
+                errors.preco &&
+                <small>{errors.preco.message}</small>
               }
             </Form.Group>
             <div className='text-center'>

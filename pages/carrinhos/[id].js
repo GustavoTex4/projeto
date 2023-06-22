@@ -54,14 +54,7 @@ const editar = () => {
     <>
       <Pagina titulo='Carrinho'>
       <Form>
-          <Form.Group className="mb-3">
-            <Form.Label>Sessão</Form.Label>
-            <Form.Control isInvalid={true} {...register('sessao', carrinhoValidator.sessao)} id="sessa" />
-            {
-              errors.sessao &&
-              <small>{errors.sessao.message}</small>
-            }
-          </Form.Group>
+          
           <Form.Group className="mb-3">
             <Form.Label >Produto:</Form.Label>
             <Form.Select isInvalid={true}  {...register('produto', carrinhoValidator.produto)} id="produto">

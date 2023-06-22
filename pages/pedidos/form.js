@@ -30,6 +30,10 @@ const form = () => {
     const pedidos = JSON.parse(window.localStorage.getItem('pedidos')) || []
     pedidos.push(dados)
     window.localStorage.setItem('pedidos', JSON.stringify(pedidos))
+
+    const carrinhos = JSON.parse(window.localStorage.getItem('carrinhos')) || []
+    carrinhos.push(dados)
+    window.localStorage.setItem('carrinhos', JSON.stringify(carrinhos))
     push('/pedidos')
   }
   function handleChange(event) {
@@ -65,16 +69,17 @@ const form = () => {
             }
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label>Valor:</Form.Label>
-            < CurrencyInput name='myInput' isInvalid={errors.valor} {...register('valor', pedidoValidator.valor)} id="valor" />
+            <Form.Label>Preço:</Form.Label>
+            < CurrencyInput name='myInput' isInvalid={errors.preco} {...register('preco', pedidoValidator.preco)} id="valor" />
             {
-              errors.valor &&
-              <small>{errors.valor.message}</small>
+              errors.preco &&
+              <small>{errors.preco.message}</small>
             }
           </Form.Group>
           <div className='text-center'>
             <Button variant="info" onClick={handleSubmit(salvar)}><AiFillSave className='me-1' />Salvar</Button>
             <Link href={'/pedidos'} className='ms-2 btn btn-danger'><ImExit className='me-1' />Voltar</Link>
+           
           </div>
         </Form>
 
